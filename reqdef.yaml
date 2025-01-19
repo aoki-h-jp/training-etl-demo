@@ -1,0 +1,95 @@
+requirements:
+  title: "高速データ処理入門"
+  target_audience:
+    - データエンジニア初心者・中級者
+    - データサイエンティスト
+    - ビッグデータ処理に興味があるエンジニア
+  duration: 45
+  objectives:
+    high_level:
+      - 高速データ処理の基本概念の理解
+      - ETLプロセスおよび分散処理の必要性とメリットの把握
+      - AWS上でのデータ処理構成の概念理解
+      - 気象データを用いた具体的なデータ加工のデモを通じた基礎技術習得
+    detailed:
+      - 大量データ処理の課題とETLの基本概念を理解する
+      - AWSの主要サービス（Glue、Step Functions等）の役割とメリットを知る
+      - Jupyter Notebook上でpandas、numpyを使ったデータ加工の基本を体験する
+  prerequisites:
+    environment:
+      - Python 3.x インストール済み
+      - Jupyter Notebook環境構築済み
+    codebase:
+      - pandas、numpyの基礎知識（入門デモに備えて）
+
+scenario:
+  phases:
+    1_overview_of_large_scale_processing:
+      duration: 10
+      steps:
+        - "大量データ処理の課題を提示"
+          details:
+            - "現代のビジネスや研究では、センサーやログから膨大なデータが発生"
+            - "単一のコンピュータでは処理が追いつかない問題を説明"
+        - "ETLとは何かを解説"
+          details:
+            - "Extract（抽出）: データソースから必要なデータを取り出す"
+            - "Transform（変換）: データのクリーニングや変形を行う"
+            - "Load（ロード）: データを目的の場所に格納する"
+        - "分散処理の必要性とメリットを説明"
+          details:
+            - "複数のコンピュータでデータを並列処理することで、処理速度が向上"
+            - "システムのスケーラビリティが確保され、大規模データにも対応可能"
+            - "信頼性の向上（障害時の冗長性など）"
+
+    2_cloud_based_solution_overview:
+      duration: 10
+      steps:
+        - "AWSを利用したデータ処理構成の概要を説明"
+          details:
+            - "クラウドを活用することで、インフラ管理を簡素化し、スケーラビリティを確保"
+            - "初期投資なしで、必要に応じたリソースの拡張が可能"
+        - "主要なAWSサービスの紹介と役割"
+          details:
+            - "AWS Glue: サーバレスでETLジョブを実行し、データ統合を自動化"
+            - "AWS Step Functions: 複数の処理ステップをオーケストレーションし、ワークフローを管理"
+        - "各サービスのメリットを共有"
+          details:
+            - "Glue: メンテナンス不要、スケーラブルなETL処理が可能"
+            - "Step Functions: 複雑なワークフローの管理が容易で、エラーハンドリング機能も充実"
+
+    3_specific_example_with_weather_data:
+      duration: 20
+      steps:
+        - "具体例として気象データ加工の流れを説明"
+          details:
+            - "世界中のセンサーからのデータ収集を想定"
+            - "今回は特定の地域や期間に絞ってデータを加工する理由を簡単に紹介"
+        - "Jupyter Notebookを使ったデモ準備"
+          details:
+            - "準備した公開気象データセットをNotebookにロードする"
+            - "必要なライブラリ（pandas、numpy）のインポートを確認"
+        - "データ読み込みと前処理の実演"
+          details:
+            - "pandasを使ってCSVファイルを読み込む (`pd.read_csv('weather_data.csv')`)"
+            - "データの概要を確認するために、`head()`や`describe()`メソッドを使う"
+            - "欠損値を確認し、`fillna()`などで適切に処理する方法を紹介"
+        - "基本的なデータ集計と操作"
+          details:
+            - "気温、湿度、降水量などの基本統計量を計算"
+            - "特定の条件でデータをフィルタリングする方法を紹介（例：異常な気温の検出）"
+        - "numpyを活用した数値計算の例を紹介"
+          details:
+            - "pandasのDataFrameとnumpy配列の連携方法を説明"
+            - "簡単なベクトル演算や統計計算をデモ"
+        - "次回への橋渡し"
+          details:
+            - "本セッションではローカルでのデータ加工を行ったが、これをAWSで実行する拡張が可能"
+            - "次回はAWS上でのデプロイや大規模処理について学ぶ予定であることを予告"
+
+    conclusion:
+      duration: 5
+      steps:
+        - "本日の内容のまとめ"
+        - "質疑応答"
+        - "次回の予告（AWS上での実践的なデータ処理実装）"
